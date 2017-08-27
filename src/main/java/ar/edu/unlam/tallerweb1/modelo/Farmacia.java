@@ -1,11 +1,15 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 
 @Entity
 public class Farmacia {
@@ -19,10 +23,10 @@ public class Farmacia {
 	private String diaDeTurno;
 	
 	@OneToMany(mappedBy="farmacia", cascade=CascadeType.ALL)
-	private Punto punto;
+	private List <Punto> colPuntos = new ArrayList<Punto>();
 	
 	@OneToMany(mappedBy="farmacia", cascade=CascadeType.ALL)
-	private Direccion direccion;
+	private List <Direccion> colDirecciones = new ArrayList<Direccion>();
 	
 	// EMPTY CONSTRUCT
 	public Farmacia(){}
@@ -53,6 +57,26 @@ public class Farmacia {
 		this.telefono = telefono;
 	}
 
+	public List<Punto> getColPuntos() {
+		return colPuntos;
+	}
+
+
+	public void setColPuntos(List<Punto> colPuntos) {
+		this.colPuntos = colPuntos;
+	}
+
+
+	public List<Direccion> getColDirecciones() {
+		return colDirecciones;
+	}
+
+
+	public void setColDirecciones(List<Direccion> colDirecciones) {
+		this.colDirecciones = colDirecciones;
+	}
+
+
 	public String getDiaDeTurno() {
 		return diaDeTurno;
 	}
@@ -61,23 +85,6 @@ public class Farmacia {
 		this.diaDeTurno = diaDeTurno;
 	}
 	
-
-	// Relation Punto??
-	public Punto getGeoLocalizacion(){
-		return this.punto;
-	}
-	public void setGeoLocalizacion(Punto punto){
-		this.punto = punto;
-	}
-	
-	// Relation Direccion??
-	public Direccion getDireccion(){
-		return this.direccion;
-	}
-	
-	public void setDireccion(Direccion direccion){
-		this.direccion = direccion;
-	}
 	
 	
 }

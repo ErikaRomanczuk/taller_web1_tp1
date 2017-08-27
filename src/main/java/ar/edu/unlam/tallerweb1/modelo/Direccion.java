@@ -21,7 +21,7 @@ public class Direccion {
 	@JoinColumn(name="id")
 	private Farmacia farmacia;
 	
-	@OneToMany(mappedBy="direccion", cascade=CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id")
 	private Barrio barrio;
 	

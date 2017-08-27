@@ -19,8 +19,8 @@ public class Comuna {
 	
 	private String nombre;
 	
-	@OneToMany(mappedBy="Barrio", cascade=CascadeType.ALL )
-	private List <Barrio> Barrios = new ArrayList<Barrio>();
+	@OneToMany(mappedBy="comuna", cascade=CascadeType.ALL )
+	private List <Barrio> colBarrios = new ArrayList<Barrio>();
 	
 	// CONSTRUCT EMPTY
 	public Comuna(){}
@@ -40,19 +40,6 @@ public class Comuna {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public List<Barrio> getBarrios() {
-		return Barrios;
-	}
-
-	public void setBarrios(List<Barrio> barrios) {
-		Barrios = barrios;
-	}
-
-	/** FALTA COMPLETAR "addBarrio" **/
-	public void addBarrio(Barrio barrio){
-		
 	}
 	
 }

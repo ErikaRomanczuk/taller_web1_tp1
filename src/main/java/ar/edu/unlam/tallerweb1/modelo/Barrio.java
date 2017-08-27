@@ -22,11 +22,12 @@ public class Barrio {
 	
 	private String nombre;
 	
-	@OneToMany(mappedBy="Direccion", cascade=CascadeType.ALL)
+	
+	@OneToMany(mappedBy="barrio", cascade=CascadeType.ALL)
 	private List <Direccion> colDirecciones = new ArrayList<Direccion>();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="Comuna")
+	@JoinColumn(name="id")
 	private Comuna comuna;
 	
 	// CONSTRUCT EMPTY
@@ -48,7 +49,7 @@ public class Barrio {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	public Comuna getComuna() {
 		return this.comuna;
 	}
